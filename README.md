@@ -1,5 +1,7 @@
 # Bingo Scholarship: Scam Awareness Demo
 
+Site URL: https://markdrahg.github.io/Bingo/
+
 A mock scholarship website built for cybersecurity awareness training.
 "Bingo Scholarship" is fictional and not a real organisation.
 
