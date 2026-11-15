@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bingo Scholarship – Fully Funded Awards 2026</title>
+<meta name="robots" content="noindex">
+<style>
+:root{
+  --navy:#0e2a47; --navy2:#16395f; --gold:#e0a526; --gold2:#f6c95a;
+  --ink:#1b2430; --muted:#5b6675; --bg:#f5f7fa; --card:#fff; --line:#dde3ea;
+  --red:#c62828;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--ink);background:var(--bg);line-height:1.55}
+h1,h2,h3{font-family:Georgia,"Times New Roman",serif;line-height:1.2;margin:0 0 .5em}
+a{color:inherit}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+
+/* top bar */
+.alert{background:var(--red);color:#fff;text-align:center;padding:8px 12px;font-size:.9rem;font-weight:600}
+header{background:var(--navy);color:#fff}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0;gap:12px;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:10px;font-family:Georgia,serif;font-size:1.35rem;font-weight:700;text-decoration:none}
+.logo i{width:34px;height:34px;border-radius:50%;background:var(--gold);color:var(--navy);display:grid;place-items:center;font-style:normal;font-weight:800;font-size:1.1rem}
+nav a{margin-left:18px;text-decoration:none;font-size:.95rem;opacity:.9}
+nav a:hover{opacity:1;text-decoration:underline}
+
+/* hero */
+.hero{background:linear-gradient(135deg,var(--navy) 0%,var(--navy2) 100%);color:#fff;padding:56px 0 64px}
+.hero .wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:36px;align-items:center}
+.hero h1{font-size:clamp(2rem,5vw,3.1rem)}
+.hero p{font-size:1.1rem;color:#d4deea;max-width:52ch}
+.btn{display:inline-block;background:var(--gold);color:var(--navy);font-weight:700;border:0;border-radius:8px;padding:14px 26px;font-size:1.05rem;cursor:pointer;text-decoration:none}
+.btn:hover{background:var(--gold2)}
+.btn:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:3px solid var(--gold2);outline-offset:2px}
+.prize{background:#fff;color:var(--ink);border-radius:14px;padding:26px;text-align:center;box-shadow:0 14px 40px rgba(0,0,0,.25)}
+.prize small{color:var(--muted)}
+.prize .amt{font-family:Georgia,serif;font-size:2.6rem;font-weight:700;color:var(--navy)}
+.timer{display:flex;gap:8px;justify-content:center;margin:14px 0 6px}
+.timer div{background:var(--navy);color:#fff;border-radius:8px;padding:8px 10px;min-width:58px}
+.timer b{display:block;font-size:1.4rem;font-variant-numeric:tabular-nums}
+.timer span{font-size:.7rem;opacity:.8}
+.slots{color:var(--red);font-weight:700;font-size:.95rem}
+
+/* sections */
+section{padding:52px 0}
+section h2{font-size:1.9rem;text-align:center}
+.sub{text-align:center;color:var(--muted);max-width:60ch;margin:0 auto 30px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:22px}
+.card h3{font-size:1.15rem}
+.card p{margin:0;color:var(--muted);font-size:.95rem}
+.ico{font-size:1.7rem}
+.quote{font-style:italic}
+.who{margin-top:10px;font-size:.85rem;font-weight:600;color:var(--navy)}
+
+/* apply */
+#apply{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+form{max-width:560px;margin:0 auto;display:grid;gap:14px}
+label{font-weight:600;font-size:.92rem;display:grid;gap:6px}
+input,select{font:inherit;padding:12px;border:1px solid #c5cdd8;border-radius:8px;background:#fff}
+.fee{background:#fff8e6;border:1px dashed var(--gold);border-radius:10px;padding:14px;font-size:.93rem}
+.fee b{color:var(--navy)}
+.note{font-size:.82rem;color:var(--muted);text-align:center}
+
+footer{background:var(--navy);color:#b9c6d6;padding:30px 0;font-size:.88rem;text-align:center}
+footer a{color:var(--gold2)}
+.edu{background:#fffbe6;color:#5a4a00;border:1px solid #ecd978;border-radius:8px;padding:10px 14px;margin:0 auto 14px;max-width:700px;font-size:.84rem}
+
+/* modal */
+dialog{border:0;border-radius:14px;max-width:520px;width:calc(100% - 32px);padding:28px;box-shadow:0 20px 60px rgba(0,0,0,.4)}
+dialog::backdrop{background:rgba(10,20,35,.65)}
+dialog h2{text-align:left;color:var(--red);font-size:1.5rem}
+dialog ul{padding-left:20px;margin:0 0 18px}
+dialog li{margin-bottom:6px}
+
+/* training mode */
+#trainBtn{position:fixed;right:14px;bottom:14px;z-index:50;background:#111;color:#fff;border:2px solid var(--gold);border-radius:999px;padding:11px 18px;font-weight:700;cursor:pointer;box-shadow:0 6px 20px rgba(0,0,0,.35)}
+.flag{position:relative}
+body.training .flag{outline:3px solid var(--red);outline-offset:4px;border-radius:6px;margin-bottom:34px}
+body.training .flag::after{
+  content:"🚩 " attr(data-note);
+  position:absolute;left:0;top:100%;margin-top:6px;z-index:5;
+  background:var(--red);color:#fff;font:600 .78rem/1.3 system-ui,sans-serif;
+  padding:5px 9px;border-radius:6px;width:max-content;max-width:min(320px,86vw);text-align:left;
+  font-family:system-ui,sans-serif;font-style:normal;text-shadow:none;letter-spacing:0;
+}
+body.training .hero .flag::after{background:#fff;color:var(--red)}
+body.training #trainBtn{background:var(--red);border-color:#fff}
+
+@media (max-width:760px){
+  .hero .wrap{grid-template-columns:1fr}
+  nav{display:none}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<div class="alert flag" data-note="Fake urgency: pressure to act fast stops you from thinking.">
+  ⏰ Applications close in 48 hours – only 12 awards remaining!
+</div>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="#"><i>B</i> Bingo Scholarship</a>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#benefits">Benefits</a>
+      <a href="#winners">Winners</a>
+      <a href="#apply">Apply</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div>
+      <h1 class="flag" data-note="Too good to be true: 'guaranteed' and 'no requirements' are never real.">Get a fully funded scholarship. Guaranteed.</h1>
+      <p>Bingo Scholarship awards up to GH₵ 25,000 to students in any university or senior high school. No essay. No interview. No minimum grades required.</p>
+      <p><a class="btn" href="#apply">Claim my scholarship</a></p>
+    </div>
+    <div class="prize">
+      <small>2026 award per student</small>
+      <div class="amt">GH₵ 25,000</div>
+      <div class="timer flag" id="timer" data-note="A countdown that restarts for every visitor is a pressure trick.">
+        <div><b id="h">47</b><span>HOURS</span></div>
+        <div><b id="m">59</b><span>MINS</span></div>
+        <div><b id="s">59</b><span>SECS</span></div>
+      </div>
+      <div class="slots">Only 12 slots left</div>
+    </div>
+  </div>
+</div>
+
+<section id="about">
+  <div class="wrap">
+    <h2>Why students choose Bingo</h2>
+    <p class="sub">Backed by international partners and trusted by over 10,000 students across West Africa.</p>
+    <div class="grid">
+      <div class="card flag" data-note="Vague claims, no named partners, no registration number to verify.">
+        <div class="ico">🌍</div><h3>International partners</h3>
+        <p>Funded by a global education foundation committed to access for all.</p>
+      </div>
+      <div class="card">
+        <div class="ico">🎓</div><h3>All courses covered</h3>
+        <p>Tuition, books and a monthly allowance, whatever you study.</p>
+      </div>
+      <div class="card">
+        <div class="ico">⚡</div><h3>Fast approval</h3>
+        <p>Get your result by SMS within 24 hours of applying.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="benefits" style="background:#fff">
+  <div class="wrap">
+    <h2>What you receive</h2>
+    <p class="sub">Every selected student gets the full package.</p>
+    <div class="grid">
+      <div class="card"><h3>Full tuition</h3><p>Paid straight to your school each semester.</p></div>
+      <div class="card"><h3>Laptop</h3><p>A brand-new laptop delivered to your hostel.</p></div>
+      <div class="card"><h3>GH₵ 800 monthly</h3><p>Sent to your Mobile Money wallet.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="winners">
+  <div class="wrap">
+    <h2>Past winners</h2>
+    <p class="sub">Real students. Real results.</p>
+    <div class="grid">
+      <div class="card flag" data-note="Unverifiable testimonials: no surnames, no school, no way to contact them.">
+        <p class="quote">“I applied on Monday and got my award on Tuesday. God bless Bingo!”</p>
+        <div class="who">Kwame A., Level 200</div>
+      </div>
+      <div class="card">
+        <p class="quote">“I never thought I would win. The process was so easy.”</p>
+        <div class="who">Abena S., Level 300</div>
+      </div>
+      <div class="card">
+        <p class="quote">“Pay the small fee and relax. They deliver!”</p>
+        <div class="who">Yaw M., Level 100</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="apply">
+  <div class="wrap">
+    <h2>Apply in 2 minutes</h2>
+    <p class="sub flag" data-note="Asks for far more personal data than any real scholarship needs.">Fill in the form below to secure your slot.</p>
+    <form id="form" autocomplete="off">
+      <label>Full name <input required placeholder="e.g. Ama Mensah"></label>
+      <label>Phone / WhatsApp number <input required type="tel" placeholder="e.g. 024 000 0000"></label>
+      <label>Ghana Card number <input required placeholder="GHA-000000000-0"></label>
+      <label>School <input required placeholder="Your institution"></label>
+      <label>Mobile Money PIN (to receive your allowance)
+        <input class="flag" data-note="NEVER share a PIN or password. No legitimate payer needs it." required type="password" inputmode="numeric" maxlength="6" placeholder="••••">
+      </label>
+      <div class="fee flag" data-note="You never pay to receive money. Upfront 'fees' are the scam itself.">
+        <b>Processing fee: GH₵ 250.</b> Send via MoMo to <b>024 000 0000</b> (Bingo Scholarship Desk) and reply with the screenshot on WhatsApp. Fee is refundable after award.
+      </div>
+      <button class="btn" type="submit">Submit and secure my award</button>
+      <p class="note">By applying you agree to our Terms.</p>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="edu">Training demo: Bingo Scholarship is <b>not real</b>. This page was built to teach scam awareness. Nothing you type here is saved or sent anywhere.</div>
+    <p class="flag" data-note="Free email (Gmail), no physical address, no registered organisation.">
+      Contact: bingoscholarship.desk@gmail.com &nbsp;|&nbsp; WhatsApp 024 000 0000
+    </p>
+    <p>© 2026 Bingo Scholarship Foundation. All rights reserved.</p>
+  </div>
+</footer>
+
+<button id="trainBtn" type="button" aria-pressed="false">🚩 Show red flags</button>
+
+<dialog id="reveal">
+  <h2>You just got scammed!</h2>
+  <p>Don't worry, nothing was sent. But a real scammer would now have your:</p>
+  <ul>
+    <li>Name, phone number and Ghana Card number</li>
+    <li>Mobile Money PIN</li>
+    <li>GH₵ 250 “processing fee”</li>
+  </ul>
+  <p><b>Rule of thumb:</b> real scholarships never charge fees, never ask for PINs, and never guarantee a win.</p>
+  <button class="btn" id="closeReveal" type="button">See the red flags</button>
+</dialog>
+
+<script>
+(function(){
+  // countdown (resets on each visit, which is itself a red flag)
+  var end = Date.now() + 48*3600*1000 - 1000;
+  function pad(n){return String(n).padStart(2,'0')}
+  function tick(){
+    var left = Math.max(0, end - Date.now());
+    document.getElementById('h').textContent = pad(Math.floor(left/3600000));
+    document.getElementById('m').textContent = pad(Math.floor(left%3600000/60000));
+    document.getElementById('s').textContent = pad(Math.floor(left%60000/1000));
+  }
+  tick(); setInterval(tick,1000);
+
+  var btn = document.getElementById('trainBtn');
+  function setTraining(on){
+    document.body.classList.toggle('training', on);
+    btn.setAttribute('aria-pressed', on);
+    btn.textContent = on ? '✕ Hide red flags' : '🚩 Show red flags';
+  }
+  btn.addEventListener('click', function(){
+    setTraining(!document.body.classList.contains('training'));
+  });
+
+  var dlg = document.getElementById('reveal');
+  document.getElementById('form').addEventListener('submit', function(e){
+    e.preventDefault();       // nothing is ever sent anywhere
+    this.reset();
+    dlg.showModal();
+  });
+  document.getElementById('closeReveal').addEventListener('click', function(){
+    dlg.close();
+    setTraining(true);
+    window.scrollTo({top:0,behavior:'smooth'});
+  });
+})();
+</script>
+</body>
+</html>
